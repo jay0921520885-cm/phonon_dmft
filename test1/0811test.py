@@ -150,33 +150,6 @@ for g in g_value:
 
 
 
-# import numpy as np
-# import matplotlib.pyplot as plt
-# from scipy.optimize import minimize
-# from scipy.integrate import simpson
-# from ed import *
-# from dos import *
-# from boson_op import*
-# data1= np.loadtxt("g_occ_docc_Z_diff_U=0.5.dat").T
-# data2= np.loadtxt("g_occ_docc_Z_diff_U=1.dat").T
-# data3= np.loadtxt("g_occ_docc_Z_diff_U=1.5.dat", skiprows=23, max_rows=36).T
-# data4= np.loadtxt("g_occ_docc_Z_diff_U=2.dat", skiprows=30, max_rows=46).T
-# data5= np.loadtxt("g_occ_docc_Z_diff_U=2.5.dat").T
-
-
-# plt.plot(data1[0], data1[4]/data1[4][0], 'b-', label='$U=0.5$')
-# plt.plot(data2[0], data2[4]/data2[4][0], 'r-', label='$U=1$')
-# plt.plot(data3[0], data3[4]/data3[4][0], 'g-', label='$U=1.5$')
-# plt.plot(data4[0], data4[4]/data4[4][0], 'c-', label='$U=2$')
-# plt.plot(data5[0], data5[4]/data5[4][0], 'm-', label='$U=2.5$')
-# plt.legend(loc='best', fontsize=12)
-# plt.xlabel('$g$',size=15)
-# plt.ylabel('$Z$',size=15)
-# plt.show()
-
-
-
-
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import minimize
@@ -184,10 +157,37 @@ from scipy.integrate import simpson
 from ed import *
 from dos import *
 from boson_op import*
-data1= np.loadtxt('g_occ_docc_Z_diff_U=2.5.dat').T
-plt.plot(data1[0], data1[3], 'b-')
+data1= np.loadtxt("g_occ_docc_Z_diff_U=0.5.dat").T
+data2= np.loadtxt("g_occ_docc_Z_diff_U=1.dat").T
+data3= np.loadtxt("g_occ_docc_Z_diff_U=1.5.dat", skiprows=23, max_rows=36).T
+data4= np.loadtxt("g_occ_docc_Z_diff_U=2.dat", skiprows=30, max_rows=46).T
+data5= np.loadtxt("g_occ_docc_Z_diff_U=2.5.dat").T
+
+
+plt.plot(2*((data1[0])**2)/w, data1[4]/data1[4][0], 'b-', label='$U=0.5$')
+plt.plot(2*((data2[0])**2)/w, data2[4]/data2[4][0], 'r-', label='$U=1$')
+plt.plot(2*((data3[0])**2)/w, data3[4]/data3[4][0], 'g-', label='$U=1.5$')
+plt.plot(2*((data4[0])**2)/w, data4[4]/data4[4][0], 'c-', label='$U=2$')
+plt.plot(2*((data5[0])**2)/w, data5[4]/data5[4][0], 'm-', label='$U=2.5$')
+plt.legend(loc='best', fontsize=12)
 plt.xlabel('$g$',size=15)
-plt.ylabel(r'$\langle n_{\uparrow} n_{\downarrow} \rangle$', fontsize=15)
+plt.ylabel('$Z$',size=15)
 plt.show()
+
+
+
+
+# import numpy as np
+# import matplotlib.pyplot as plt
+# from scipy.optimize import minimize
+# from scipy.integrate import simpson
+# from ed import *
+# from dos import *
+# from boson_op import*
+# data1= np.loadtxt('g_occ_docc_Z_diff_U=2.5.dat').T
+# plt.plot(data1[0], data1[3], 'b-')
+# plt.xlabel('$g$',size=15)
+# plt.ylabel(r'$\langle n_{\uparrow} n_{\downarrow} \rangle$', fontsize=15)
+# plt.show()
 
 
