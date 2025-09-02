@@ -150,32 +150,36 @@ for g in g_value:
 
 
 
-import numpy as np
-import matplotlib.pyplot as plt
-from scipy.optimize import minimize
-from scipy.integrate import simpson
-from ed import *
-from dos import *
-from boson_op import*
-data1= np.loadtxt("g_occ_docc_Z_diff_U=0.5.dat").T
-data2= np.loadtxt("g_occ_docc_Z_diff_U=1.dat").T
-data3= np.loadtxt("g_occ_docc_Z_diff_U=1.5.dat", skiprows=23, max_rows=36).T
-data4= np.loadtxt("g_occ_docc_Z_diff_U=2.dat", skiprows=30, max_rows=46).T
-data5= np.loadtxt("g_occ_docc_Z_diff_U=2.5.dat").T
 
 
-plt.plot(2*((data1[0])**2)/w, data1[4]/data1[4][0], 'b-', label='$U=0.5$')
-plt.plot(2*((data2[0])**2)/w, data2[4]/data2[4][0], 'r-', label='$U=1$')
-plt.plot(2*((data3[0])**2)/w, data3[4]/data3[4][0], 'g-', label='$U=1.5$')
-plt.plot(2*((data4[0])**2)/w, data4[4]/data4[4][0], 'c-', label='$U=2$')
-plt.plot(2*((data5[0])**2)/w, data5[4]/data5[4][0], 'm-', label='$U=2.5$')
-plt.legend(loc='best', fontsize=12)
-plt.xlabel('$g$',size=15)
-plt.ylabel('$Z$',size=15)
-plt.show()
+#---------------------------------Z的程式繪圖----------------------------------------------------
+# import numpy as np
+# import matplotlib.pyplot as plt
+# from scipy.optimize import minimize
+# from scipy.integrate import simpson
+# from ed import *
+# from dos import *
+# from boson_op import*
+# w=0.2
+# data1= np.loadtxt("g_occ_docc_Z_diff_U=0.5.dat",skiprows=10, max_rows=15).T
+# data2= np.loadtxt("g_occ_docc_Z_diff_U=1.dat",skiprows=12, max_rows=15).T
+# data3= np.loadtxt("g_occ_docc_Z_diff_U=1.5.dat", skiprows=35, max_rows=15).T
+# data4= np.loadtxt("g_occ_docc_Z_diff_U=2.dat", skiprows=45, max_rows=14).T
+# data5= np.loadtxt("g_occ_docc_Z_diff_U=2.5.dat",skiprows=19, max_rows=15).T
+# data6=np.loadtxt("g_occ_docc_Z_diff_U=2.9.dat").T
 
+# plt.plot((data1[0]**2)*2/w, data1[4]/data1[4][0], 'b-', label='$U=0.5$')
+# plt.plot((data2[0]**2)*2/w, data2[4]/data2[4][0], 'r-', label='$U=1$')
+# plt.plot((data3[0]**2)*2/w, data3[4]/data3[4][0], 'g-', label='$U=1.5$')
+# plt.plot((data4[0]**2)*2/w, data4[4]/data4[4][0], 'c-', label='$U=2$')
+# plt.plot((data5[0]**2)*2/w, data5[4]/data5[4][0], 'm-', label='$U=2.5$')
+# plt.plot((data6[0]**2)*2/w, data6[4]/data6[4][0], 'orange', label='$U=2.9$')
+# plt.legend(loc='best', fontsize=12)
+# plt.xlabel('$λ$',size=15)
+# plt.ylabel('$Z$',size=15)
+# plt.show()
 
-
+#----------------------------------雙占率的程式繪圖-------------------------------------------------------
 
 # import numpy as np
 # import matplotlib.pyplot as plt
@@ -184,10 +188,78 @@ plt.show()
 # from ed import *
 # from dos import *
 # from boson_op import*
-# data1= np.loadtxt('g_occ_docc_Z_diff_U=2.5.dat').T
-# plt.plot(data1[0], data1[3], 'b-')
-# plt.xlabel('$g$',size=15)
+# w=0.2
+# data1= np.loadtxt('g_occ_docc_Z_diff_U=2.5.dat',skiprows=19, max_rows=15).T
+# plt.plot((data1[0]**2)*2/w, data1[3], 'b-')
+# plt.xlabel('$\\lambda$', fontsize=15)
 # plt.ylabel(r'$\langle n_{\uparrow} n_{\downarrow} \rangle$', fontsize=15)
 # plt.show()
+#------------------------------------平均n的程式繪圖-----------------------------------------------
 
+
+# import numpy as np
+# import matplotlib.pyplot as plt
+# import matplotlib.ticker as ticker
+# from ed import *
+# from dos import *
+# from boson_op import *
+
+# w = 0.2
+# data1 = np.loadtxt("g_occ_docc_Z_diff_U=0.5.dat", skiprows=10, max_rows=15).T
+# data2 = np.loadtxt("g_occ_docc_Z_diff_U=1.dat", skiprows=12, max_rows=15).T
+# data3 = np.loadtxt("g_occ_docc_Z_diff_U=1.5.dat", skiprows=35, max_rows=15).T
+# data4 = np.loadtxt("g_occ_docc_Z_diff_U=2.dat", skiprows=45, max_rows=14).T
+# data5 = np.loadtxt("g_occ_docc_Z_diff_U=2.5.dat", skiprows=19, max_rows=15).T
+# data6 = np.loadtxt("g_occ_docc_Z_diff_U=2.9.dat").T
+
+#先四捨五入
+# n1=data1[1]+data1[2]
+# n1new=[]
+# for i in n1:
+#     n1new.append(round(i, 2))
+
+# n2=data2[1]+data2[2]
+# n2new=[]
+# for i in n2:
+#     n2new.append(round(i, 2))
+
+
+# n3=data3[1]+data3[2]
+# n3new=[]
+# for i in n3:
+#     n3new.append(round(i, 2))
+
+
+# n4=data4[1]+data4[2]
+# n4new=[]
+# for i in n4:
+#     n4new.append(round(i, 2))
+
+# n5=data5[1]+data5[2]
+# n5new=[]
+# for i in n5:
+#     n5new.append(round(i, 2))
+
+# n6=data6[1]+data6[2]
+# n6new=[]
+# for i in n6:
+#     n6new.append(round(i, 2))
+
+
+# plt.scatter((data1[0]**2)*2/w, n1new, color='b', label='$U=0.5$')
+# plt.scatter((data2[0]**2)*2/w, n2new, color='r', label='$U=1$')
+# plt.scatter((data3[0]**2)*2/w, n3new, color='g', label='$U=1.5$')
+# plt.scatter((data4[0]**2)*2/w, n4new, color='c', label='$U=2$')
+# plt.scatter((data5[0]**2)*2/w, n5new, color='m', label='$U=2.5$')
+# plt.scatter((data6[0]**2)*2/w, n6new, color='orange', label='$U=2.9$')
+
+# plt.legend(loc='best', fontsize=12)
+# plt.xlabel('$\\lambda$', fontsize=15)
+# plt.ylabel('$n$', fontsize=15)
+
+# # 關掉 y 軸 offset
+# plt.gca().yaxis.get_major_formatter().set_useOffset(False)
+
+
+# plt.show()
 
